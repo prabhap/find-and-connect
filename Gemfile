@@ -32,7 +32,7 @@ group :doc do
 end
 
 group :production do
-  gem 'mysql2'
+  gem 'pg'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
