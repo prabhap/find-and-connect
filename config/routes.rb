@@ -1,4 +1,6 @@
 FindAndConnect::Application.routes.draw do
+  get "children/missing"
+  get "users/missing"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
