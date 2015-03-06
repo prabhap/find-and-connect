@@ -1,4 +1,5 @@
 FindAndConnect::Application.routes.draw do
+  get "upload/index"
   get "children/missing"
   get "users/missing"
   # The priority is based upon order of creation: first created -> highest priority.
