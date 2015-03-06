@@ -1,7 +1,6 @@
 FindAndConnect::Application.routes.draw do
-  get "upload/index"
-  get "children/missing"
-  get "users/missing"
+
+  resources :children, only: [:index, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -42,7 +41,7 @@ FindAndConnect::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

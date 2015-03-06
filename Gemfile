@@ -34,6 +34,8 @@ end
 group :production do
   gem 'pg'
 end
+
+gem 'carrierwave'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
