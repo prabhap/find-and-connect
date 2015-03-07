@@ -1,0 +1,8 @@
+.row {
+  margin-bottom: 20px;
+}
+
+#content {
+  border-left: 1px solid lightgray;
+  min-height: 300px;
+}

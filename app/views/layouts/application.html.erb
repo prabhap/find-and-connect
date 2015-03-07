@@ -3,12 +3,22 @@
 <head>
   <title>FindAndConnect</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "custom", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="main-container" class="container">
+    <div class="row">
 
-<%= yield %>
-
+      <div id="sidebar" class="col-xs-2">
+        <div class="row"> <%= link_to "Register a missing child", "/children/register" %></div>
+        <div class="row"> <%= link_to "Search for a missing child", "/children/search" %></div>
+      </div>
+      <div id="content" class="container col-xs-9">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

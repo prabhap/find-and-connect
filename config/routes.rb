@@ -1,6 +1,9 @@
 FindAndConnect::Application.routes.draw do
 
-  resources :children, only: [:index, :create]
+  resources :children, only: [:create, :index]
+  get 'children/register' => 'children#register'
+  get 'children/search' => 'children#search'
+  root :to => "children#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
