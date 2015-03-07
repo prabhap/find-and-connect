@@ -16,6 +16,9 @@
         <div class="row"> <%= link_to "Search for a missing child", "/children/search" %></div>
       </div>
       <div id="content" class="container col-xs-9">
+        <div class="row">
+          <%= flash[:notice] %>
+        </div>
         <%= yield %>
       </div>
     </div>

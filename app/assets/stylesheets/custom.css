@@ -6,3 +6,31 @@
   border-left: 1px solid lightgray;
   min-height: 300px;
 }
+
+body {
+  background-color: black;
+}
+
+#sidebar a {
+  color: gray;
+  font-weight: bold;
+}
+
+#sidebar a:hover {
+  color: gray;
+}
+
+body {
+  color: gray;
+}
+
+#main-container {
+}
+
+input[type="submit"] {
+  background-color: wheat;
+}
+
+.container {
+  padding: 10px;
+}
