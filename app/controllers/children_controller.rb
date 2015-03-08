@@ -17,8 +17,10 @@ class ChildrenController < ApplicationController
                        identification_mark: info["identification_mark"], contact_no: info["contact_no"], name: info["name"])
     @child.save!
 
+    logger.debug "************ Dummy call Started"
     # A dummy call to cache the image response.
     Net::HTTP.get(URI("https://powerful-spire-1087.herokuapp.com/data/#{@child.avatar.identifier}"))
+    logger.debug "************ Dummy call Done"
 
     response = FaceClient.detectFace("#{@child.avatar.identifier}")
     logger.debug "************ Response is #{response}"
