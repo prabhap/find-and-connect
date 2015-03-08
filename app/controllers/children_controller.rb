@@ -41,6 +41,7 @@ class ChildrenController < ApplicationController
 
   	response = FaceClient.searchFaceInFaceSet(face_id)
     matches = JSON.parse(response)["candidate"]
+    matches = matches.select {|candidate| candidate["similarity"] > 70} if(!matches.empty?)
 
     if !matches.empty?
        logger.info "************* Match Full response #{response}"
