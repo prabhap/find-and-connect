@@ -36,7 +36,7 @@ class ChildrenController < ApplicationController
     info = params[:child]
     @child = Child.new(avatar: info["avatar"])
     @child.save!
-    response = FaceClient.detectFace("/data/#{@child.avatar.file.filename}")
+    response = FaceClient.detectFace("#{@child.avatar.current_path}")
     face_id = JSON.parse(response)["face"][0]["face_id"]
   	response = FaceClient.searchFaceInFaceSet(face_id)
     matches = JSON.parse(response)["candidate"]
