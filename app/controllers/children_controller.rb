@@ -16,6 +16,8 @@ class ChildrenController < ApplicationController
     @child = Child.new(avatar: info["avatar"], age: info["age"],
                        identification_mark: info["identification_mark"], contact_no: info["contact_no"], name: info["name"])
     @child.save!
+    `wget https://powerful-spire-1087.herokuapp.com/data/#{@child.avatar.identifier}`
+    sleep(10)
     response = FaceClient.detectFace("#{@child.avatar.identifier}")
     logger.debug "************ Response is #{response}"
     raise response
