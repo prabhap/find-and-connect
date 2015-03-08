@@ -16,9 +16,7 @@ class ChildrenController < ApplicationController
     @child = Child.new(avatar: info["avatar"], age: info["age"],
                        identification_mark: info["identification_mark"], contact_no: info["contact_no"], name: info["name"])
     @child.save!
-    response = FaceClient.detectFace("#{@child.avatar.identifier}")
-    logger.debug "************ Response is #{response}"
-    raise response
+    response = FaceClient.detectFace("#{@child.avatar.file.filename}")
     face_id = JSON.parse(response)["face"][0]["face_id"]
     FaceClient.addToFaceSet(face_id)
     @child.update_attributes(face_id: face_id)
@@ -38,9 +36,9 @@ class ChildrenController < ApplicationController
     info = params[:child]
     @child = Child.new(avatar: info["avatar"])
     @child.save!
-    response = FaceClient.detectFace("#{@child.avatar.identifier}")
-    raise response
+    response = FaceClient.detectFace("#{@child.avatar.file.filename}")
     face_id = JSON.parse(response)["face"][0]["face_id"]
+
   	response = FaceClient.searchFaceInFaceSet(face_id)
     matches = JSON.parse(response)["candidate"]
     if(!matches.empty?)
