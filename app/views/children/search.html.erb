@@ -1,8 +1,13 @@
  <%= form_for @child, url: "match_child", html: { multipart: true, role:"form", class:"form-horizontal"} do |f| %>
 
+ <!--<div class="form-group">-->
+  <!--<label class="col-sm-2 control-label">Upload child's photo:</label>-->
+  <!---->
+<!--</div>-->
+
  <div class="form-group">
-  <label class="col-sm-2 control-label">Upload child's photo:</label>
-  <%= f.file_field :avatar %>
+  <label class="col-sm-2 control-label">Registration id</label>
+  <%= f.text_field :id %>
 </div>
 
 <div class="form-group">

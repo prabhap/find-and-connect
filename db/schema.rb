@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150307210308) do
+ActiveRecord::Schema.define(version: 20150308081742) do
 
   create_table "children", force: true do |t|
     t.string  "avatar"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150307210308) do
     t.integer "age"
     t.string  "contact_no"
     t.string  "face_id"
+    t.string  "reported_by"
   end
 
   create_table "users", force: true do |t|

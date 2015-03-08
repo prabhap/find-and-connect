@@ -6,17 +6,6 @@
   </div>
 
   <div class="form-group">
-    <label class="col-sm-2 control-label"> Name </label>
-    <%=f.text_field :name %>
-  </div>
-
-  <div class="form-group">
-    <label class="col-sm-2 control-label"> Age </label>
-    <%=f.text_field :age %>
-  </div>
-
-
-  <div class="form-group">
     <label class="col-sm-2 control-label"> Identification Marks </label>
     <%=f.text_area :identification_mark %>
   </div>
@@ -31,13 +20,13 @@
     <%= f.file_field :avatar %>
   </div>
 
-  <%= f.hidden_field "reported_by", :value =>  "parent" %>
+  <%= f.hidden_field "reported_by", :value =>  "anonymous" %>
 
-
- <div class="form-group">
+  <div class="form-group">
     <div class="col-sm-offset-2">
       <%= submit_tag :submit %>
     </div>
   </div>
+
  <% end %>
 

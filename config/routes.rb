@@ -3,6 +3,7 @@ FindAndConnect::Application.routes.draw do
   resources :children, only: [:create, :index]
   get 'children/register' => 'children#register'
   get 'children/search' => 'children#search'
+  get 'children/report' => 'children#report_anonymous_child'
   get 'children/show/:id' => 'children#show'
   post 'children/match_child' => 'children#match_child'
   root :to => "children#index"
