@@ -5,7 +5,7 @@ class FaceClient
 	API_SECRET = 'QK6oigj-DPoUeY_J8tYjU1O7iAzIuwkM'
 
 	def self.detectFace(face_url)
-		Net::HTTP.get(URI("https://apius.faceplusplus.com/v2/detection/detect?url=https://powerful-spire-1087.herokuapp.com#{face_url}&api_secret=#{API_SECRET}&api_key=#{API_KEY}&attribute=glass,pose,gender,age,race,smiling"))
+		Net::HTTP.get(URI("https://apius.faceplusplus.com/v2/detection/detect?url=https://powerful-spire-1087.herokuapp.com/data/#{face_url}&api_secret=#{API_SECRET}&api_key=#{API_KEY}&attribute=glass,pose,gender,age,race,smiling"))
 	end
 
 	def self.addToFaceSet(face_id)
