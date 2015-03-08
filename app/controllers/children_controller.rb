@@ -16,7 +16,7 @@ class ChildrenController < ApplicationController
     @child = Child.new(avatar: info["avatar"], age: info["age"],
                        identification_mark: info["identification_mark"], contact_no: info["contact_no"], name: info["name"])
     @child.save!
-    response = FaceClient.detectFace("/data/#{@child.avatar.file.filename}")
+    response = FaceClient.detectFace("#{@child.avatar.identifier}")
     face_id = JSON.parse(response)["face"][0]["face_id"]
     FaceClient.addToFaceSet(face_id)
     @child.update_attributes(face_id: face_id)
