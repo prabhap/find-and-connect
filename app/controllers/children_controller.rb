@@ -41,13 +41,12 @@ class ChildrenController < ApplicationController
 
   	response = FaceClient.searchFaceInFaceSet(face_id)
     matches = JSON.parse(response)["candidate"]
-    matches = matches.select {|candidate| candidate["similarity"] > 70} if(!matches.empty?)
+    @matches = matches.select {|candidate| candidate["similarity"] > 70} if(!matches.empty?)
 
-    if !matches.empty?
+    if !@matches.empty?
        logger.info "************* Match Full response #{response}"
        logger.info "************* Match Candidate response #{matches}"
-       found_children = Child.where(face_id: matches.collect{|candidate| candidate["face_id"]})
-       redirect_to "/children/show/#{found_children.last.id}"
+       @found_children = Child.where(face_id: @matches.collect{|candidate| candidate["face_id"]})
     else
       render text: "child not found in our system"
     end

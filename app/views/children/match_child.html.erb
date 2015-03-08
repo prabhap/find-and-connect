@@ -1,0 +1,15 @@
+<% @found_children.each do |child| %>
+<p>
+  <strong>Child Details</strong>
+  <br>
+  Name: <%= child.name %>
+  <br>
+  <b style="color:green">Similarity: <%= @matches.select{|match| match['face_id'] == child.face_id}.first["similarity"]%></b>
+  <br>
+  Age: <%= child.age %>
+  <br>
+  contact_no: <%= child.contact_no %>
+  <br>
+  <img width="200" height="200" src=<%="/data/#{child.avatar.file.filename}"%>>
+</p>
+<% end %>
