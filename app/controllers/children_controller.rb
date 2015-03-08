@@ -41,7 +41,10 @@ class ChildrenController < ApplicationController
 
   	response = FaceClient.searchFaceInFaceSet(face_id)
     matches = JSON.parse(response)["candidate"]
-    if(!matches.empty?)
+
+    if !matches.empty?
+       logger.info "************* Match Full response #{response}"
+       logger.info "************* Match Candidate response #{matches}"
        found_children = Child.where(face_id: matches.collect{|candidate| candidate["face_id"]})
        redirect_to "/children/show/#{found_children.last.id}"
     else
