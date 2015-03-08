@@ -30,7 +30,7 @@ class ChildrenController < ApplicationController
   end
 
   def permit_params
-    params.require(:child).permit(:name, :age, :contact_no, :identification_mark, :avatar)
+    params.require(:child).permit(:name, :age, :contact_no, :identification_mark, :avatar, :reported_by)
   end
 
   def search
@@ -44,6 +44,7 @@ class ChildrenController < ApplicationController
   end
 
   def match_child
+
     info = params[:child]
     @child = Child.find(info["id"])
     response = FaceClient.detectFace("#{@child.avatar.file.filename}")
